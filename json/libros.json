@@ -1,0 +1,73 @@
+[
+{"id": "1",
+ "categoria": "Librería",
+ "producto": "ProAngularJS",
+ "editorial": "Apress",
+ "precio": "20",
+ "imagen": "img/angular1.jpg"
+},
+{"id": "2",
+ "categoria": "Librería",
+ "producto": "AngularJS Starter",
+ "editorial": "Packt Publishing",
+ "precio": "25",
+ "imagen": "img/angular2.jpg"
+},
+{"id": "3",
+ "categoria": "Librería",
+ "producto": "Mastering AngularJS",
+ "editorial": "Packt Publishing",
+ "precio": "30",
+ "imagen": "img/angular3.jpg"
+},
+{"id": "4",
+ "categoria": "Librería",
+ "producto": "AngularJS Essentials",
+ "editorial": "Packt Publishing",
+ "precio": "20",
+ "imagen": "img/angular4.jpg"
+},
+{"id": "5",
+ "categoria": "Librería",
+ "producto": "Professional AngularJS",
+  "editorial": "Wrox",
+ "precio": "40",
+ "imagen": "img/angular5.jpg"
+},
+{"id": "6",
+ "categoria": "Librería",
+ "producto": "AngularJS in Action",
+ "editorial": "Manning",
+ "precio": "40",
+ "imagen": "img/angular6.jpg"
+},
+{"id": "7",
+ "categoria": "Librería",
+ "producto": "Learning AngularJS",
+ "editorial": "OReilly",
+ "precio": "37",
+ "imagen": "img/angular7.jpg"
+},
+{"id": "8",
+ "categoria": "Librería",
+ "producto": "AngularJS Testing",
+ "editorial": "Packt Publishing",
+ "precio": "28",
+ "imagen": "img/angular8.jpg"
+},
+{"id": "9",
+ "categoria": "Librería",
+ "producto": "AngularJS UI Development",
+ "editorial": "Packt Publishing",
+ "precio": "35",
+ "imagen": "img/angular9.jpg"
+},
+{"id": "10",
+ "categoria": "Librería",
+ "producto": "AngularJS",
+ "editorial": "OReilly",
+ "precio": "38",
+ "imagen": "img/angular10.jpg"
+}
+
+]

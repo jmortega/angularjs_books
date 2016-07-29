@@ -1,0 +1,163 @@
+<!doctype html>
+<html ng-app="LibrosAngular"  ng-controller="LibrosController">
+  <head>
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+	<link rel="stylesheet" media="screen" href="css/styles.css" >
+	<link href="css/bootstrap-combined.min.css" rel="stylesheet" />
+	<!-- Include the core AngularJS library -->
+    <script src="js/vendor/angular.min.js"></script>
+	<!-- Include the AngularJS routing library -->
+    <script src="js/vendor/angular-route.min.js"></script>
+	
+  </head>
+  <body>
+    
+	<div>
+    <div class="container-fluid">
+        <h1>AngularJS Biblioteca</h1>
+        <tabs>
+			<pane title="Home">
+			<h4>Sitio de compra de los mejores libros de angularJS que podemos encontrar en las
+			principales editoriales:</h4>
+			
+			<img title="oREILLY" 
+                    src="img/OReilly.jpg" style="width: 40%;height:90%" />
+					
+			<img title="packt" 
+                    src="img/packt.jpg" style="width: 40%;height:90%" />
+					
+			<img title="Manning" 
+                    src="img/manning.png" style="width: 40%;height:90%" />
+					
+			<img title="Apress" 
+                    src="img/apress.png" style="width: 40%;height:90%" />
+			</pane>
+            <pane title="Libros">
+			<div ng-show="nuevoProducto">
+					<h4>Anyadido nuevo libro a la compra <span style="color:blue">{{nombreLibro}}</span></h4>
+			</div>
+            <div class="row">
+                <div class="well span3" ng-repeat="libro in productos">
+                    <h4>{{libro.producto}}</h4>
+					<h4>{{libro.editorial}}</h4>
+					
+                    <img title="{{libro.producto}}" 
+                    src="{{libro.imagen}}" style="width: 100%;height:100%" />
+					<br/><br/>
+                    <button class="btn btn-block" ng-click="comprar(libro)"> 
+                        <i class="icon-plus-sign"></i>
+                        Precio: {{libro.precio|formatoMoneda}} &euro;
+						<br/>
+						<strong>COMPRAR</strong>
+                    </button>
+                </div>
+            </div>
+            </pane>
+            <pane title="Compra">
+			
+			<div ng-controller="CompraController">
+				<div ng-show="compra.length==0">
+				<h4>No hay productos en su compra</h4>
+				</div>
+				<div ng-show="eliminadoProducto">
+					<h4>Eliminado libro <span style="color:red">{{nombreLibro}}</span></h4>
+				</div>
+				<div class="row" ng-show="compra.length">
+			
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="span1">Id</th>
+                            <th class="span5">Libro</th>
+                            <th class="span2">Cantidad</th>
+                            <th class="span2">Precio</th>
+                            <th class="span2">Total</th>
+							<th class="span2">Eliminar libro</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="well" ng-repeat="item in compra">
+                            <td>{{item.producto.id}}</td>
+                            <td>{{item.producto.producto}}</td>
+                            <td>
+                                <input type="text" ng-model="item.cantidad" />
+                            </td>
+                            <td>{{item.producto.precio}} &euro;</td>
+                            <td>{{item.cantidad * item.producto.precio}} &euro;</td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="eliminar(item)">
+                                    <i class="icon-minus-sign"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="well">
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td></td>
+                            <td>{{precioTotal()|formatoMoneda}} &euro;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+			</div>
+            </pane>
+			<pane title="Contacto">
+			
+			<div ng-controller="ContactoController">	
+			<h1>Enviar datos de contacto</h1>
+			<section align="center">
+				<form class="contact_form" ng-submit="enviar()" name="contact_form">
+				<ul>
+				<li>
+				<label for="datos.nombre">Nombre:</label>
+					<input type="text" ng-model="datos.nombre" required>
+					<br>
+				</li>
+				<li>
+				<label for="datos.apellidos">Apellidos:</label>
+					<input type="text" ng-model="datos.apellidos" required>
+					<br>
+				</li>
+				<li>
+				<label for="datos.email">Email:</label>
+					 <input type="text" ng-model="datos.email" placeholder="user@domain" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+					<br>
+				</li>
+				<li>
+					<label for="datos.mensaje">Mensaje:</label>
+					<textarea rows="4" cols="50" ng-model="datos.mensaje" required >
+					</textarea>
+					<br>
+				</li>
+				</ul>
+					<button class="submit" type="submit">Enviar</button>
+				</form>
+				<div><strong>Datos enviados:</strong></div>
+				<div>Nombre:<strong>{{nombre}}</strong></div>
+				<div>Apellidos:<strong>{{apellidos}}</strong></div>
+				<div>Email:<strong>{{email}}</strong></div>
+				<div>Mensaje:<strong>{{email}}</strong></div>
+			</section>
+			</div>
+			
+			</pane>
+        </tabs>
+    </div>
+</div>
+    
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/LibrosController.js"></script>
+	<script src="js/controllers/CompraController.js"></script>
+	<script src="js/controllers/ContactoController.js"></script>
+	
+	<!-- Services -->
+    <script src="js/services/LibrosService.js"></script>
+	<script src="js/services/CompraService.js"></script>
+  </body>
+</html>
